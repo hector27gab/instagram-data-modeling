@@ -11,7 +11,7 @@ class Post(Base):
     __tablename__ = "post"
     id = Column(Integer, primary_key = True)
     image_src = Column(String(500), nullable = False)
-    likes = Column(Integer, nullable = False) 
+    likes_number = Column(Integer, nullable = False) 
     description = Column(String(500), nullable = False)
     likes = relationship("likes")
     user_post = relationship("profile")
@@ -20,6 +20,7 @@ class Likes(Base):
     __tablename__ = "likes"
     id = Column(Integer, primary_key = True)
     name = Column(String(100), nullable = False)
+    likes_number = Column(Integer, nullable = False) 
     post_id = Column(Integer, ForeignKey("post.id"), nullable = False)
     favorite_posts = relationship("user")
 
